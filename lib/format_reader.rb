@@ -1,3 +1,7 @@
+require_relative 'header'
+require_relative 'paragraphs'
+require_relative 'emphasize'
+
 class FormatReader
   attr_accessor :paragraph
 
@@ -11,13 +15,21 @@ class FormatReader
 
   def determine_format
     if @paragraph.start_with?("#")
-      format_type = "header"
+      handle = Header.new(@paragraph)
+      paragraph = handle.parse_headers
+      if paragraph.include?("*")
+        handle = Emphasize.new(paragraph)
+        paragraph = handle.parse_emphasis
+      end
     else
-     format_type = "paragraph"
-    # what about lists
-    # font
+      handle = Paragraphs.new(@paragraph)
+      paragraph = handle.parse_paragraphs
+      if paragraph.include?("*")
+        handle = Emphasize.new(paragraph)
+        paragraph = handle.parse_emphasis
+      end
     end
-    format_type
+    paragraph
   end
 
 

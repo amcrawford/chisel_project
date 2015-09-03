@@ -1,7 +1,7 @@
 require_relative 'splitter'
 require_relative 'format_reader'
-require_relative 'header'
-require_relative 'paragraphs'
+
+
 
 class Parser
   attr_accessor :input
@@ -20,30 +20,17 @@ class Parser
     paragraph_type = ""
     final_text = []
     paragraphs.each do |paragraph|
-      loop do
       paragraph_format = FormatReader.new(paragraph)
-      paragraph_type = paragraph_format.determine_format
-          if paragraph_type == "header"
-            handle = Header.new(paragraph)
-            paragraph = handle.parse_headers
-          elsif paragraph_type == "paragraph"
-            handle = Paragraphs.new(paragraph)
-            paragraph = handle.parse_paragraphs
-          end
-        break if paragraph_type != "header" || paragraph_type != "paragraph"
-        end
-        final_text << paragraph
-      # Convert blocks
-          #if "header" call Header class
+      paragraph = paragraph_format.determine_format
+      final_text << paragraph
     end
-    final_text
-    # join final text
+      final_text.join("")
   end
 
 
 end
 
-
+# Testing
 text = Parser.new("# My Life in Desserts
 
 ## Chapter 1: The Beginning

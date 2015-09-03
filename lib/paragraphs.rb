@@ -11,6 +11,7 @@ class Paragraphs
     else
       @paragraph = "<p>#{paragraph}</p>"
     end
+  @paragraph
   end
 
 end

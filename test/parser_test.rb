@@ -32,30 +32,29 @@ class ParserTest < MiniTest::Test
     assert_equal "header", text.parse
   end
 
-  def test_that_it_calls_Header
-    skip
-    text = Parser.new("Hello")
-    assert_equal ["Hello"], text.parse
-  end
-
   def test_that_it_returns_html_headers
     text = Parser.new("# Hello")
-    assert_equal ["<h1> Hello</h1>"], text.parse
+    assert_equal "<h1> Hello</h1>", text.parse
   end
 
-  def test_that_it_calls_Paragraph
+  def test_that_it_returns_html_paragraph
     text = Parser.new("Hello")
-    assert_equal ["<p>Hello</p>"], text.parse
-  end
-
-  def test_that_it_returns_html_paragraphs
-    text = Parser.new("Hello")
-    assert_equal ["<p>Hello</p>"], text.parse
+    assert_equal "<p>Hello</p>", text.parse
   end
 
   def test_that_it_can_parse_both
     text = Parser.new("# Hello\n\n# This\n\n is a paragraph")
-    assert_equal ["<h1> Hello</h1>","<h1> This</h1>", "<p> is a paragraph</p>"], text.parse
+    assert_equal "<h1> Hello</h1><h1> This</h1><p> is a paragraph</p>", text.parse
+  end
+
+  def test_that_it_can_return_emphasis
+    file = Parser.new("Hi *Hello You* Buenos")
+    assert_equal "<p>Hi <em>Hello You</em> Buenos</p>", file.parse
+  end
+
+  def test_that_it_will_emphasize_and_paragraph
+    text = Parser.new("# Hello\n\n# This\n\n is a *paragraph*")
+    assert_equal "<h1> Hello</h1><h1> This</h1><p> is a <em>paragraph</em></p>", text.parse
   end
 
 end

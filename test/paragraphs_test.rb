@@ -16,6 +16,4 @@ class ParagraphsTest < MiniTest::Test
     assert_equal "<h1> Hello</h1>", file.parse_paragraphs
   end
 
-
-
 end
