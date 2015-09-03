@@ -57,4 +57,9 @@ class ParserTest < MiniTest::Test
     assert_equal "<h1> Hello</h1><h1> This</h1><p> is a <em>paragraph</em></p>", text.parse
   end
 
+  def test_that_it_will_emphasize_in_header
+    text = Parser.new("# *Hello*\n\n# This\n\n is a *paragraph*")
+    assert_equal "<h1> <em>Hello</em></h1><h1> This</h1><p> is a <em>paragraph</em></p>", text.parse
+  end
+
 end
