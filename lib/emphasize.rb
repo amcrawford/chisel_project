@@ -33,11 +33,3 @@ class Emphasize
     end
 
 end
-
-
-
-
-# if you find one *, keep going til the next one
-  #emphasize everything in between
-
-# if there is no next one leave as is

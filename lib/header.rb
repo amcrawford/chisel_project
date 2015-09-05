@@ -12,11 +12,6 @@ class Header
       line.gsub!(("#"*header_number),"<h#{header_number}>")
       line << ("</h#{header_number}>")
     end
-    @paragraph = lines.join("\n")
+    @paragraph = lines.join("")
   end
 end
-
-
-# Notes
-  # Only works if there is a space before the actual text
-  # Still joins by "\n" not a break

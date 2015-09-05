@@ -26,8 +26,4 @@ class EmphasizeTest < MiniTest::Test
     assert_equal "Hi <strong>Hello You</strong> <em>Buenos</em>", file.parse_emphasis
   end
 
-  def test_that_it_will_not_convert_single_stars
-    skip
-    #HOW????
-  end
 end

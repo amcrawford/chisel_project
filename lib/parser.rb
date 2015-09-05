@@ -1,7 +1,4 @@
-require_relative 'splitter'
 require_relative 'format_reader'
-
-
 
 class Parser
   attr_accessor :input
@@ -25,10 +22,9 @@ class Parser
       final_text.join("")
   end
 
-
 end
 
-# # Testing
+# Testing
 # text = Parser.new("# My Life in Desserts
 #
 # ## Chapter 1: The Beginning
@@ -40,5 +36,7 @@ end
 # Notes
   # Still Need:
     # Edge cases: &, etc
-    # Clean-up? (newlines>)
+      # * In string not emph.
+      # Header without space after #
+    # Print to HTML with newlines?
     # Delete splitter?

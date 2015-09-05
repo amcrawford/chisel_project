@@ -16,6 +16,3 @@ class Paragraphs
   end
 
 end
-
-# Notes
-  # Needs all text to have had headers converted first -- is this true?

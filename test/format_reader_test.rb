@@ -11,41 +11,6 @@ class FormatReaderTest < MiniTest::Test
     assert_equal "Hello", text.read
   end
 
-  # def test_that_it_can_identify_headers
-  #   text = FormatReader.new("# Hello")
-  #   assert_equal "header", text.determine_format
-  # end
-  #
-  # def test_that_it_can_skip_words_with_hashes
-  #   text = FormatReader.new("Every day #yolo")
-  #   refute_equal "header", text.determine_format
-  # end
-  #
-  # def test_that_it_can_identify_different_level_headers
-  #   text = FormatReader.new("## Hello")
-  #   assert_equal "header", text.determine_format
-  # end
-  #
-  # def test_that_it_can_identify_paragraphs
-  #   text = FormatReader.new("Hello")
-  #   assert_equal "paragraph", text.determine_format
-  # end
-  #
-  # def test_that_it_can_identify_emphasis
-  #   text = FormatReader.new("*Hello*")
-  #   assert_equal "emphasis", text.determine_format
-  # end
-  #
-  # def test_that_it_will_identify_headers_first
-  #   text = FormatReader.new("## *Hello*")
-  #   assert_equal "header", text.determine_format
-  # end
-  #
-  # def test_that_it_will_not_call_lists_emphasis
-  #   skip
-  #   ##
-  # end
-
   def test_that_it_calls_Header
     skip
     text = FormatReader.new("Hello")
