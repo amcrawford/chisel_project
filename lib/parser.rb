@@ -15,9 +15,7 @@ class Parser
   end
 
   def parse
-    lines = Splitter.new(@input)
-    paragraphs = lines.split_by_paragraph
-    paragraph_type = ""
+    paragraphs = @input.split("\n\n")
     final_text = []
     paragraphs.each do |paragraph|
       paragraph_format = FormatReader.new(paragraph)
@@ -38,3 +36,9 @@ end
 # 'You just *have* to try the cheesecake,' he said. 'Ever since it appeared in
 # **Food & Wine** this place has been packed every night.'")
 # puts text.parse
+
+# Notes
+  # Still Need:
+    # Edge cases: &, etc
+    # Clean-up? (newlines>)
+    # Delete splitter?

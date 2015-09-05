@@ -62,4 +62,9 @@ class ParserTest < MiniTest::Test
     assert_equal "<h1> <em>Hello</em></h1><h1> This</h1><p> is a <em>paragraph</em></p>", text.parse
   end
 
+  def test_that_it_can_return_list
+    file = Parser.new("* Sushi\n* Barbeque\n* Mexican")
+    assert_equal "<ul><li>Sushi</li><li>Barbeque</li><li>Mexican</li></ul>", file.parse
+  end
+
 end

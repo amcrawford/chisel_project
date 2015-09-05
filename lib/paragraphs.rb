@@ -10,6 +10,7 @@ class Paragraphs
       @paragraph
     else
       @paragraph = "<p>#{paragraph}</p>"
+      @paragraph.gsub!("\n", "<br>")
     end
   @paragraph
   end

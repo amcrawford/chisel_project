@@ -72,4 +72,23 @@ class FormatReaderTest < MiniTest::Test
     assert_equal "<p>Hi <em>Hello You</em> Buenos</p>", file.determine_format
   end
 
+  def test_that_it_calls_ordered_lists
+    file = FormatReader.new("1. Sushi\n2. Barbeque\n3. Mexican")
+    assert_equal "<ol><li>Sushi</li><li>Barbeque</li><li>Mexican</li></ol>", file.determine_format
+  end
+
+  def test_that_it_calls_unordered_lists
+    file = FormatReader.new("* Sushi\n* Barbeque\n* Mexican")
+    assert_equal "<ul><li>Sushi</li><li>Barbeque</li><li>Mexican</li></ul>", file.determine_format
+  end
+
+  def test_that_it_can_call_emphasis_in_unordered_list
+    file = FormatReader.new("* Sushi\n* *Barbeque*\n* Mexican")
+    assert_equal "<ul><li>Sushi</li><li><em>Barbeque</em></li><li>Mexican</li></ul>", file.determine_format
+  end
+
+  def test_that_it_does_not_call_emphasis_a_list
+    file = FormatReader.new("* Sushi\n* *Barbeque*\n* Mexican")
+    assert_equal "<ul><li>Sushi</li><li><em>Barbeque</em></li><li>Mexican</li></ul>", file.determine_format
+  end
 end
