@@ -11,12 +11,6 @@ class FormatReaderTest < MiniTest::Test
     assert_equal "Hello", text.read
   end
 
-  def test_that_it_calls_Header
-    skip
-    text = FormatReader.new("Hello")
-    assert_equal ["Hello"], text.determine_format
-  end
-
   def test_that_it_returns_html_headers
     text = FormatReader.new("# Hello")
     assert_equal "<h1> Hello</h1>", text.determine_format

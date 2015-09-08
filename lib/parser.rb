@@ -32,11 +32,3 @@ end
 # 'You just *have* to try the cheesecake,' he said. 'Ever since it appeared in
 # **Food & Wine** this place has been packed every night.'")
 # puts text.parse
-
-# Notes
-  # Still Need:
-    # Edge cases: &, etc
-      # * In string not emph.
-      # Header without space after #
-    # Print to HTML with newlines?
-    # Delete splitter?

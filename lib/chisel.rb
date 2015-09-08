@@ -28,3 +28,4 @@ end
 file = FileOpener.new(ARGV[0], ARGV[1])
 translated_file = file.translate
 final_file = file.write
+puts "Converted #{ARGV[0]} (#{file.input.split("\n").length} lines) to #{ARGV[1]}"

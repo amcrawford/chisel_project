@@ -8,30 +8,6 @@ class ParserTest < MiniTest::Test
     assert_equal "Hello", text.read
   end
 
-  def test_that_it_calls_splitter
-    skip
-    text = Parser.new("Hello")
-    assert_equal ["Hello"], text.parse
-  end
-
-  def test_that_splitter_call_returns_array
-    skip
-    text = Parser.new("Hello")
-    assert_equal ["Hello"], text.parse
-  end
-
-  def test_that_it_calls_FormatReader
-    skip
-    text = Parser.new("Hello")
-    assert_equal ["Hello"], text.parse
-  end
-
-  def test_that_it_returns_a_header_type
-    skip
-    text = Parser.new("# Hello")
-    assert_equal "header", text.parse
-  end
-
   def test_that_it_returns_html_headers
     text = Parser.new("# Hello")
     assert_equal "<h1> Hello</h1>", text.parse
